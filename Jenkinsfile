@@ -1,6 +1,6 @@
 @Library('my-shared-library')
 
-pipeline{
+pipeline {
     agent any
 
     stages{
