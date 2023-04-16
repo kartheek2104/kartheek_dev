@@ -49,6 +49,7 @@ pipeline {
 
       steps {
         script {
+          def SonarQube = "sonarqube-api"
           statiCodeAnalysis()
         }
 
