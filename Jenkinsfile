@@ -9,7 +9,7 @@ pipeline {
         steps{
             script{
                 gitCheckout{
-                    branch: "main" ,
+                    branch: 'main',
                     url: 'https://github.com/kartheek2104/kartheek_dev.git'
                 }
             }
