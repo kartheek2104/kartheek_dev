@@ -55,5 +55,17 @@ pipeline {
 
       }
     }
+
+    stage('Quality Gate analysis sonar') {
+      when { expression {  params.action == 'create' } }
+
+      steps {
+        script {
+          def SonarQube = "sonarqube-api"
+          QualityGateStatus(SonarQube)
+        }
+
+      }
+    }
   }
 }
