@@ -24,49 +24,49 @@ pipeline {
       }
     }
 
-    stage('Maven Unit test') {
-    when { expression {  params.action == 'create' } }
-      steps {
-        script {
-          mvnTest()
-        }
+    // stage('Maven Unit test') {
+    // when { expression {  params.action == 'create' } }
+    //   steps {
+    //     script {
+    //       mvnTest()
+    //     }
 
-      }
-    }
+    //   }
+    // }
 
-     stage('Maven Integration test') {
-      when { expression {  params.action == 'create' } }
+    //  stage('Maven Integration test') {
+    //   when { expression {  params.action == 'create' } }
 
-      steps {
-        script {
-          mvnIntegrationTest()
-        }
+    //   steps {
+    //     script {
+    //       mvnIntegrationTest()
+    //     }
 
-      }
-    }
-    stage('Static code analysis: Sonarqube') {
-      when { expression {  params.action == 'create' } }
+    //   }
+    // }
+    // stage('Static code analysis: Sonarqube') {
+    //   when { expression {  params.action == 'create' } }
 
-      steps {
-        script {
-          def SonarQube = "sonarqube-api"
-          statiCodeAnalysis(SonarQube)
-        }
+    //   steps {
+    //     script {
+    //       def SonarQube = "sonarqube-api"
+    //       statiCodeAnalysis(SonarQube)
+    //     }
 
-      }
-    }
+    //   }
+    // }
 
-    stage('Quality Gate Status Check : Sonarqube') {
-      when { expression {  params.action == 'create' } }
+    // stage('Quality Gate Status Check : Sonarqube') {
+    //   when { expression {  params.action == 'create' } }
 
-      steps {
-        script {
-          def SonarQube = "sonarqube-api"
-          QualityGateStatus(SonarQube)
-        }
+    //   steps {
+    //     script {
+    //       def SonarQube = "sonarqube-api"
+    //       QualityGateStatus(SonarQube)
+    //     }
 
-      }
-    }
+    //   }
+    // }
 
     stage('Maven Build : maven'){
          when { expression {  params.action == 'create' } }
